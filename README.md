@@ -235,6 +235,18 @@ docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
 Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64`.
 
+
+# Bazarr with subsync
+
+[linuxserver/bazarr](https://hub.docker.com/r/linuxserver/bazarr) (latest and development tags) with [subsync](https://github.com/smacke/subsync) - useful as a Bazarr post-processing command to make sure your subtitles are always synced.
+
+## Usage
+
+1. Setup container according to [linuxserver/bazarr](https://hub.docker.com/r/linuxserver/bazarr) - changing image to `sekkr1/bazarr-subsync`
+2. Put `/usr/bin/ffsubsync -i "{{subtitles}}" -o "{{subtitles}}" "{{episode}}" >>/tmp/subsync_log 2>&1` in Bazarr post-processing command setting
+
+
+
 ## Versions
 
 * **15.15.21:** - Temp fix for lxml, compile from scratch to avoid broken official wheel.
